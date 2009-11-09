@@ -19,19 +19,34 @@ with their passport application.
 Example
 =======
 
-pesel = Pesel.new('75120804355')
-pesel.valid?      # returns true
-pesel.birth_date  # returns Date object with '1975-12-08' date
-pesel.female?     # returns false
-pesel.male?       # returns true
-pesel.gender      # returns :male
+Standalone class:
 
-pesel = Pesel.new('00000000000')
-pesel.valid?      # returns false
-pesel.birth_date  # raises Pesel::NumberInvalid exception
-pesel.female?     # raises Pesel::NumberInvalid exception
-pesel.male?       # raises Pesel::NumberInvalid exception
-pesel.gender      # raises Pesel::NumberInvalid exception
+  pesel = Pesel.new('75120804355')
+  pesel.valid?      # returns true
+  pesel.birth_date  # returns Date object with '1975-12-08' date
+  pesel.female?     # returns false
+  pesel.male?       # returns true
+  pesel.gender      # returns :male
+
+  pesel = Pesel.new('00000000000')
+  pesel.valid?      # returns false
+  pesel.birth_date  # raises Pesel::NumberInvalid exception
+  pesel.female?     # raises Pesel::NumberInvalid exception
+  pesel.male?       # raises Pesel::NumberInvalid exception
+  pesel.gender      # raises Pesel::NumberInvalid exception
+
+ActiveRecord:
+
+  class Person < ActiveRecord::Base
+    validate :check_pesel
+
+    private
+      def check_pesel
+        p = Pesel.new(pesel)
+        message = 'Invalid PESEL number'
+        errors.add(:pesel, message) unless p.valid?
+      end
+  end
 
 
 Copyright (c) 2009 Piotr Macuk, released under the MIT license
