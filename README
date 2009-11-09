@@ -1,13 +1,37 @@
 Pesel
 =====
 
-Introduction goes here.
+This plugin provides the Pesel class to check the PESEL number
+and get information about it.
+
+PESEL (Polish Powszechny Elektroniczny System Ewidencji Ludności,
+Universal Electronic System for Registration of the Population)
+is the national identification number used in Poland since 1979.
+
+The PESEL number is mandatory for all permanent residents of Poland
+and for temporary residents living in Poland for over 2 months.
+Applicants for Polish citizenship must request a PESEL number together
+with their passport application.
+
+[http://en.wikipedia.org/wiki/PESEL]
 
 
 Example
 =======
 
-Example goes here.
+pesel = Pesel.new('75120804355')
+pesel.valid?      # returns true
+pesel.birth_date  # returns Date object with '1975-12-08' date
+pesel.female?     # returns false
+pesel.male?       # returns true
+pesel.gender      # returns :male
+
+pesel = Pesel.new('00000000000')
+pesel.valid?      # returns false
+pesel.birth_date  # raises Pesel::NumberInvalid exception
+pesel.female?     # raises Pesel::NumberInvalid exception
+pesel.male?       # raises Pesel::NumberInvalid exception
+pesel.gender      # raises Pesel::NumberInvalid exception
 
 
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+Copyright (c) 2009 Piotr Macuk, released under the MIT license
