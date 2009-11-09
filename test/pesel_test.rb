@@ -4,10 +4,11 @@ class PeselTest < ActiveSupport::TestCase
   Valid   = %w(75120804355 74082610668 02221407563)
   Invalid = %w(75120804350 95993823492 00000000000 123)
 
-  test "number method" do
+  test "number and to_s methods" do
     (Valid + Invalid).each do |number|
       p = Pesel.new(number)
       assert number, p.number
+      assert number, p.to_s
     end
   end
 

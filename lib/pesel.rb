@@ -11,6 +11,10 @@ class Pesel
     @valid = validate
   end
 
+  def to_s
+    number
+  end
+
   def valid?
     @valid
   end
