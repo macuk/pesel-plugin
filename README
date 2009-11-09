@@ -15,6 +15,8 @@ with their passport application.
 
 [http://en.wikipedia.org/wiki/PESEL]
 
+Interesting information about PESEL (in Polish language):
+http://wipos.p.lodz.pl/zylla/ut/pesel.html
 
 Example
 =======
@@ -27,6 +29,7 @@ Standalone class:
   pesel.female?     # returns false
   pesel.male?       # returns true
   pesel.gender      # returns :male
+  pesel.number      # returns '75120804355'
 
   pesel = Pesel.new('00000000000')
   pesel.valid?      # returns false
@@ -34,6 +37,7 @@ Standalone class:
   pesel.female?     # raises Pesel::NumberInvalid exception
   pesel.male?       # raises Pesel::NumberInvalid exception
   pesel.gender      # raises Pesel::NumberInvalid exception
+  pesel.number      # raises Pesel::NumberInvalid exception
 
 ActiveRecord:
 
