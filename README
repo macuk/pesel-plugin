@@ -18,6 +18,11 @@ with their passport application.
 Interesting information about PESEL (in Polish language):
 http://wipos.p.lodz.pl/zylla/ut/pesel.html
 
+Installation
+============
+
+  script/plugin install git://github.com/macuk/pesel.git
+
 Example
 =======
 
