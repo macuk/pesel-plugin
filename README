@@ -2,7 +2,7 @@ Pesel
 =====
 
 This plugin provides the Pesel class to check the PESEL number
-and get information about it.
+and get information about its owner.
 
 PESEL (Polish Powszechny Elektroniczny System Ewidencji Ludności,
 Universal Electronic System for Registration of the Population)
