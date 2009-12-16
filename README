@@ -21,7 +21,7 @@ http://wipos.p.lodz.pl/zylla/ut/pesel.html
 Installation
 ============
 
-  script/plugin install git://github.com/macuk/pesel.git
+script/plugin install git://github.com/macuk/pesel.git
 
 Example
 =======
@@ -29,15 +29,15 @@ Example
 Standalone class:
 
   pesel = Pesel.new('75120804355')
-  pesel.valid?      # returns true
-  pesel.birth_date  # returns Date object with '1975-12-08' date
-  pesel.female?     # returns false
-  pesel.male?       # returns true
-  pesel.gender      # returns :male
-  pesel.number      # returns '75120804355'
+  pesel.valid?      # true
+  pesel.birth_date  # Date object with '1975-12-08' date
+  pesel.female?     # false
+  pesel.male?       # true
+  pesel.gender      # :male
+  pesel.number      # '75120804355'
 
   pesel = Pesel.new('00000000000')
-  pesel.valid?      # returns false
+  pesel.valid?      # false
   pesel.birth_date  # raises Pesel::NumberInvalid exception
   pesel.female?     # raises Pesel::NumberInvalid exception
   pesel.male?       # raises Pesel::NumberInvalid exception
